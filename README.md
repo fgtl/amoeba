@@ -16,20 +16,24 @@ Bug reports, feature requests and general feedback are *very* welcome.
 How to install
 --------------
 
-\# bash ./install.sh
+```shell
+# bash ./install.sh
+```
 
 How to uninstall
 ----------------
 
-\# rm /etc/bash_completion.d/adm
+```shell
+# rm /etc/bash_completion.d/adm
+```
 
 How to report bugs
 ------------------
 
 Use GitHub's [issues tracker](https://github.com/fgtl/amoeba/issues "Github issues tracker").
 
-Please include the results of the following commands:
+Please include the results of the following command:
 
-$ lsb_release -sirc
-
-$ ps -p$$ -ocmd=
+```shell
+$ lsb_release -sirc; ps -p$$ -ocmd=
+```
