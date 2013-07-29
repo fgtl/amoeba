@@ -12,11 +12,17 @@ Amoeba isn't feature complete yet. Feature requests, bug reports and general fee
 
 ## How to install
 
-With root priviledges, type the following command:
+With root priviledges, type the following command in Amoeba's folder:
 
 ```shell
 bash ./install.sh
 ```
+
+### Dependencies
+
+* [GNU Bash](http://www.gnu.org/software/bash/ "GNU Bash")
+* [Apache OFBiz](http://ofbiz.apache.org/index.html "Apache OFBiz")
+* [OFBiz addon manager](http://code.google.com/a/apache-extras.org/p/ofbiz-adm/ "OFBiz addon manager")
 
 ## How to uninstall
 
