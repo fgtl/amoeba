@@ -12,7 +12,7 @@ Amoeba isn't feature complete yet. Feature requests, bug reports and general fee
 
 ## How to install
 
-With root priviledges, type the following command in Amoeba's folder:
+With root privileges, type the following command in Amoeba's folder:
 
 ```shell
 bash ./install.sh
@@ -26,7 +26,7 @@ bash ./install.sh
 
 ## How to uninstall
 
-With root priviledges, type the following command:
+With root privileges, type the following command:
 
 ```shell
 rm /etc/bash_completion.d/adm
