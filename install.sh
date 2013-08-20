@@ -5,7 +5,7 @@ case `uname` in
 		file=/etc/bash_completion.d/adm
 		;;
 	Darwin)
-		file=/opt/local/etc/bash_completion.d
+		file=/opt/local/etc/bash_completion.d/adm
 		;;
 	*)
 		echo "Your system is not supported yet."
