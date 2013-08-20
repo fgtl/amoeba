@@ -35,8 +35,8 @@ _adm()
 	
 	COMPREPLY=()
 	_get_comp_words_by_ref cur prev
-	# Raccourcis supprimés : up wa
-	opts="aaf add-all-files add-directory add-file af diff help init install l list ll lw list-file new-addon remove-file revert rf seal status uninstall uninstall-all update-file version which-addon"
+	# Raccourcis supprimés : wa
+	opts="aaf add-all-files add-directory add-file af diff help init install l list ll lw list-file new-addon remove-file revert rf seal status ul uninstall uninstall-all up update-file update-location version which-addon"
 	
 	case $prev in
 		# Auto-complétion des commandes de l’ADM
@@ -45,17 +45,17 @@ _adm()
 			;;
 		add-all-files|aaf)
 			_magie
-			COMPREPLY=( $( compgen -W "-d" -- "$cur" ) \
+			COMPREPLY=( $( compgen -W "-addon -d" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		add-directory)
 			_magie
-			COMPREPLY=( $( compgen -W "-f -size" -- "$cur" ) \
+			COMPREPLY=( $( compgen -W "-addon -f -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		add-file|af)
 			_magie
-			COMPREPLY=( $( compgen -W "-d -f -size" -- "$cur" ) \
+			COMPREPLY=( $( compgen -W "-addon -d -f -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		diff)
@@ -75,10 +75,10 @@ _adm()
 			$( compgen -f -- "$cur" ) )
 			;;
 		list|l)
-			COMPREPLY=( $( compgen -W "-head -m -tree -work -works" -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "-c -head -m -tree -work -works" -- "$cur" ) )
 			;;
 		ll|lw)
-			COMPREPLY=( $( compgen -W " -m -tree" -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "-c -m -tree" -- "$cur" ) )
 			;;
 		# À replacer par du code utile (base : `adm list` | grep )
 		list-file)
@@ -92,7 +92,8 @@ _adm()
 			;;
 		remove-file|rf)
 			_magie
-			COMPREPLY=( $( compgen -f -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "-addon" -- "$cur" ) \
+            $( compgen -f -- "$cur" ) )
 			;;
 		revert)
 			_magie
@@ -114,8 +115,12 @@ _adm()
 			;;
 		update-file|up)
 			_magie
-			COMPREPLY=( $( compgen -W "-d -size" -- "$cur" ) \
+			COMPREPLY=( $( compgen -W "-addon -d -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
+			;;
+        update-location|ul)
+            _magie
+            COMPREPLY=( $( compgen -W "-i -location -name -r" -- "$cur" ) )
 			;;
 		version)
 			return 0
