@@ -11,6 +11,7 @@ case `uname` in
 		echo "Your system is not supported yet."
 		echo "If you want to support Amoeba, fill a bug report on https://github.com/fgtl/amoeba/issues with the result of the following command: uname. We'll be delighted to add support for your OS as soon as we hear from you!"
 		echo "Meanwhile, you can install Amoeba by yourself: copy the adm file and paste it in your shell completion folder."
+        exit 0
 esac
 
 if [[ -e $file ]]
