@@ -29,7 +29,7 @@ bash ./install.sh
 With root privileges, type the following command:
 
 ```shell
-rm /etc/bash_completion.d/adm
+bash ./uninstall.sh
 ```
 
 ## How to report bugs
