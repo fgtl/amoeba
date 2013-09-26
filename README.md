@@ -12,10 +12,22 @@ Amoeba isn't feature complete yet. Feature requests, bug reports and general fee
 
 ## How to install
 
-With root privileges, type the following command in Amoeba's folder:
+Preferably in your download folder, type the following:
 
 ```shell
-bash ./install.sh
+wget https://github.com/fgtl/amoeba/archive/master.tar.gz; tar -zxf master.tar.gz; rm master.tar.gz
+
+```
+
+Then proceed to typing the following command with root privileges:
+
+```shell
+bash amoeba-master/install.sh
+```
+
+You can remove the installation folder if you don't need it anymore:
+```shell
+rm -r amoeba-master
 ```
 
 ### Dependencies
