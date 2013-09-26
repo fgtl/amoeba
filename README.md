@@ -15,8 +15,7 @@ Amoeba isn't feature complete yet. Feature requests, bug reports and general fee
 Preferably in your download folder, type the following:
 
 ```shell
-wget https://github.com/fgtl/amoeba/archive/master.tar.gz; tar -zxf master.tar.gz; rm master.tar.gz
-
+wget https://github.com/fgtl/amoeba/archive/master.tar.gz && tar -zxf master.tar.gz && rm master.tar.gz
 ```
 
 Then proceed to typing the following command with root privileges:
