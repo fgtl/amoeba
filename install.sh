@@ -1,4 +1,5 @@
 #!bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 case `uname` in
 	Linux)
@@ -30,6 +31,6 @@ then
 			exit 0
 	fi
 fi
-cp ./adm "$file"
+cp "$DIR/adm" "$file"
 echo "Installation completed."
 exit 0
