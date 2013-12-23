@@ -20,13 +20,11 @@
 have adm &&
 {
 
-_magie()
+_completion()
 {
-	# Magie (à comprendre et documenter)
-	# nécessaire pour une gestion correcte des fichiers/dossiers
-	_expand || return 0
-	
-	_compopt_o_filenames
+    # Built-in completion
+    # see: http://www.gnu.org/software/bash/manual/html_node/Programmable-Completion-Builtins.html
+    compopt -o filenames
 }
 
 _adm()
@@ -44,22 +42,22 @@ _adm()
 			COMPREPLY=( $( compgen -W "$opts" -- "$cur" ) )
 			;;
 		add-all-files|aaf)
-			_magie
+			_completion
 			COMPREPLY=( $( compgen -W "-addon -d" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		add-directory)
-			_magie
+			_completion
 			COMPREPLY=( $( compgen -W "-addon -f -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		add-file|af)
-			_magie
+			_completion
 			COMPREPLY=( $( compgen -W "-addon -d -f -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		diff)
-			_magie
+			_completion
 			COMPREPLY=( $( compgen -W "* -all -index -r -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
@@ -70,7 +68,7 @@ _adm()
 			COMPREPLY=( $( compgen -W "-branch -filter -repository" -- "$cur" ) )
 			;;
 		install)
-			_magie
+			_completion
 			COMPREPLY=( $( compgen -W "--force-all --force-depen --force-ivy-tree --force-patch -org -v" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
@@ -86,17 +84,17 @@ _adm()
 			;;
 		# À améliorer (base : `adm list` | grep )
 		new-addon)
-			_magie
+			_completion
 			COMPREPLY=( $( compgen -W "-d" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		remove-file|rf)
-			_magie
+			_completion
 			COMPREPLY=( $( compgen -W "-addon" -- "$cur" ) \
             $( compgen -f -- "$cur" ) )
 			;;
 		revert)
-			_magie
+			_completion
 			COMPREPLY=( $( compgen -W "-all -r" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
@@ -114,25 +112,25 @@ _adm()
 			COMPREPLY=( $( compgen -W "--force-revert" -- "$cur" ))
 			;;
 		update-file|up)
-			_magie
+			_completion
 			COMPREPLY=( $( compgen -W "-addon -d -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
         update-location|ul)
-            _magie
+            _completion
             COMPREPLY=( $( compgen -W "-i -location -name -r" -- "$cur" ) )
 			;;
 		version)
 			return 0
 			;;
         which-addon|wa)
-			_magie
+			_completion
 			COMPREPLY=( $( compgen -W "-detail" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
         # Auto-complétion par défaut
         *)
-            _magie
+            _completion
             COMPREPLY=( $( compgen -f -- "$cur" ) )   
             ;;
 	esac
