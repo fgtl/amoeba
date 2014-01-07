@@ -25,6 +25,7 @@ bash amoeba-master/install.sh
 ```
 
 You can remove the installation folder if you don't need it anymore:
+(you'll need it to uninstall Amoeba, though)
 ```shell
 rm -r amoeba-master
 ```
@@ -40,7 +41,7 @@ rm -r amoeba-master
 With root privileges, type the following command:
 
 ```shell
-bash ./uninstall.sh
+bash amoeba-master/uninstall.sh
 ```
 
 ## How to report bugs
