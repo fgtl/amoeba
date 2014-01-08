@@ -3,7 +3,7 @@
 # AMOEBA
 # Addon-Manager (OFBiz ERP) Bash Autocomplete
 #
-# Copyright 2013 François Lecomte (Néréide)
+# Copyright 2013-2014 François Lecomte (Néréide)
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -33,11 +33,12 @@ _adm()
 	
 	COMPREPLY=()
 	_get_comp_words_by_ref cur prev
-	# Raccourcis supprimés : wa
+  # This should contain all supported commands and aliases
+	# However, the following alias was removed: wa
 	opts="aaf add-all-files add-directory add-file af diff help init install l list ll lw list-file new-addon remove-file revert rf seal status ul uninstall uninstall-all up update-file update-location version which-addon"
 	
 	case $prev in
-		# Auto-complétion des commandes de l’ADM
+		# All ADM commands' completion options
 		adm)
 			COMPREPLY=( $( compgen -W "$opts" -- "$cur" ) )
 			;;
@@ -78,11 +79,10 @@ _adm()
 		ll|lw)
 			COMPREPLY=( $( compgen -W "-c -m -tree" -- "$cur" ) )
 			;;
-		# À replacer par du code utile (base : `adm list` | grep )
+		# Could be improved (with : `adm list` | grep)
 		list-file)
 			return 0
 			;;
-		# À améliorer (base : `adm list` | grep )
 		new-addon)
 			_completion
 			COMPREPLY=( $( compgen -W "-d" -- "$cur" ) \
@@ -104,7 +104,7 @@ _adm()
 		status)
 			COMPREPLY=( $( compgen -W "-detail" -- "$cur" ))
 			;;
-		# À améliorer (base : `adm list` | grep )
+		# Could be improved (with : `adm list` | grep)
 		uninstall)
 			COMPREPLY=( $( compgen -W "--force-revert --no-reload" -- "$cur" ) )
 			;;
@@ -116,23 +116,23 @@ _adm()
 			COMPREPLY=( $( compgen -W "-addon -d -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
-        update-location|ul)
-            _completion
-            COMPREPLY=( $( compgen -W "-i -location -name -r" -- "$cur" ) )
-			;;
-		version)
-			return 0
-			;;
-        which-addon|wa)
-			_completion
-			COMPREPLY=( $( compgen -W "-detail" -- "$cur" ) \
-			$( compgen -f -- "$cur" ) )
-			;;
-        # Auto-complétion par défaut
-        *)
-            _completion
-            COMPREPLY=( $( compgen -f -- "$cur" ) )   
-            ;;
+    update-location|ul)
+      _completion
+      COMPREPLY=( $( compgen -W "-i -location -name -r" -- "$cur" ) )
+      ;;
+    version)
+      return 0
+      ;;
+    which-addon|wa)
+      _completion
+      COMPREPLY=( $( compgen -W "-detail" -- "$cur" ) \
+      $( compgen -f -- "$cur" ) )
+      ;;
+    # Default completion
+    *)
+      _completion
+      COMPREPLY=( $( compgen -f -- "$cur" ) )   
+      ;;
 	esac
 	
 	return 0
