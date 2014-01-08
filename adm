@@ -33,7 +33,7 @@ _adm()
 	
 	COMPREPLY=()
 	_get_comp_words_by_ref cur prev
-  # This should contain all supported commands and aliases
+	# This should contain all supported commands and aliases
 	# However, the following alias was removed: wa
 	opts="aaf add-all-files add-directory add-file af diff help init install l list ll lw list-file new-addon remove-file revert rf seal status ul uninstall uninstall-all up update-file update-location version which-addon"
 	
@@ -91,7 +91,7 @@ _adm()
 		remove-file|rf)
 			_completion
 			COMPREPLY=( $( compgen -W "-addon" -- "$cur" ) \
-            $( compgen -f -- "$cur" ) )
+			$( compgen -f -- "$cur" ) )
 			;;
 		revert)
 			_completion
@@ -116,23 +116,23 @@ _adm()
 			COMPREPLY=( $( compgen -W "-addon -d -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
-    update-location|ul)
-      _completion
-      COMPREPLY=( $( compgen -W "-i -location -name -r" -- "$cur" ) )
-      ;;
-    version)
-      return 0
-      ;;
-    which-addon|wa)
-      _completion
-      COMPREPLY=( $( compgen -W "-detail" -- "$cur" ) \
-      $( compgen -f -- "$cur" ) )
-      ;;
-    # Default completion
-    *)
-      _completion
-      COMPREPLY=( $( compgen -f -- "$cur" ) )   
-      ;;
+		update-location|ul)
+			_completion
+			COMPREPLY=( $( compgen -W "-i -location -name -r" -- "$cur" ) )
+			;;
+		version)
+			return 0
+			;;
+		which-addon|wa)
+			_completion
+			COMPREPLY=( $( compgen -W "-detail" -- "$cur" ) \
+			$( compgen -f -- "$cur" ) )
+			;;
+		# Default completion
+		*)
+			_completion
+			COMPREPLY=( $( compgen -f -- "$cur" ) )   
+			;;
 	esac
 	
 	return 0
