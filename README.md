@@ -15,19 +15,19 @@ Amoeba isn't feature complete yet. Feature requests, bug reports and general fee
 Preferably in your download folder, type the following:
 
 ```shell
-wget https://github.com/fgtl/amoeba/archive/master.tar.gz && tar -zxf master.tar.gz && rm master.tar.gz
+wget https://github.com/fgtl/amoeba/archive/12.04.tar.gz && tar -zxf 12.04.tar.gz && rm 12.04.tar.gz
 ```
 
 Then proceed to typing the following command with root privileges:
 
 ```shell
-bash amoeba-master/install.sh
+bash amoeba-12.04/install.sh
 ```
 
 You can remove the installation folder if you don't need it anymore:
 (you'll need it to uninstall Amoeba, though)
 ```shell
-rm -r amoeba-master
+rm -r amoeba-12.04
 ```
 
 ### Dependencies
@@ -41,7 +41,7 @@ rm -r amoeba-master
 With root privileges, type the following command:
 
 ```shell
-bash amoeba-master/uninstall.sh
+bash amoeba-12.04/uninstall.sh
 ```
 
 ## How to report bugs
