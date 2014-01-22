@@ -17,7 +17,7 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-have adm &&
+have adm12.04 &&
 {
 
 _completion()
@@ -27,7 +27,7 @@ _completion()
     compopt -o filenames
 }
 
-_adm()
+_adm12.04()
 {
 	local cur prev opts
 	
@@ -35,11 +35,11 @@ _adm()
 	_get_comp_words_by_ref cur prev
 	# This should contain all supported commands and aliases
 	# However, the following alias was removed: wa
-	opts="aaf add-directory add-file af diff help init install l list ll lw list-file new-addon remove-file revert rf seal status ul uninstall uninstall-all up update-file update-location version which-addon"
+	opts="aaf add-directory add-file af diff help init install l list ll lw list-file new-addon remove-file revert rf seal status ul uninstall uninstall-all up update-file version which-addon"
 	
 	case $prev in
 		# All ADM commands' completion options
-		adm)
+		adm12.04)
 			COMPREPLY=( $( compgen -W "$opts" -- "$cur" ) )
 			;;
 		add-directory)
@@ -74,7 +74,7 @@ _adm()
 		ll|lw)
 			COMPREPLY=( $( compgen -W "-c -m -tree" -- "$cur" ) )
 			;;
-		# Could be improved (with : `adm list` | grep)
+		# Could be improved (with : `adm12.04 list` | grep)
 		list-file)
 			return 0
 			;;
@@ -94,7 +94,7 @@ _adm()
 		status)
 			COMPREPLY=( $( compgen -W "-detail" -- "$cur" ))
 			;;
-		# Could be improved (with : `adm list` | grep)
+		# Could be improved (with : `adm12.04 list` | grep)
 		uninstall)
 			COMPREPLY=( $( compgen -W "--force-revert --no-reload" -- "$cur" ) )
 			;;
@@ -123,6 +123,6 @@ _adm()
 	
 	return 0
 } &&
-complete -F _adm adm
+complete -F _adm12.04 adm12.04
 
 }
