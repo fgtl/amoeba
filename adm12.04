@@ -35,26 +35,21 @@ _adm()
 	_get_comp_words_by_ref cur prev
 	# This should contain all supported commands and aliases
 	# However, the following alias was removed: wa
-	opts="aaf add-all-files add-directory add-file af diff help init install l list ll lw list-file new-addon remove-file revert rf seal status ul uninstall uninstall-all up update-file update-location version which-addon"
+	opts="aaf add-directory add-file af diff help init install l list ll lw list-file new-addon remove-file revert rf seal status ul uninstall uninstall-all up update-file update-location version which-addon"
 	
 	case $prev in
 		# All ADM commands' completion options
 		adm)
 			COMPREPLY=( $( compgen -W "$opts" -- "$cur" ) )
 			;;
-		add-all-files|aaf)
-			_completion
-			COMPREPLY=( $( compgen -W "-addon -d" -- "$cur" ) \
-			$( compgen -f -- "$cur" ) )
-			;;
 		add-directory)
 			_completion
-			COMPREPLY=( $( compgen -W "-addon -f -size" -- "$cur" ) \
+			COMPREPLY=( $( compgen -W "-f -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		add-file|af)
 			_completion
-			COMPREPLY=( $( compgen -W "-addon -d -f -size" -- "$cur" ) \
+			COMPREPLY=( $( compgen -W "-d -f -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		diff)
@@ -66,15 +61,15 @@ _adm()
 			COMPREPLY=( $( compgen -W "$opts" -- "$cur" ) )
 			;;
 		init)
-			COMPREPLY=( $( compgen -W "-branch -filter -repository" -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "-branch -repository" -- "$cur" ) )
 			;;
 		install)
 			_completion
-			COMPREPLY=( $( compgen -W "--force-all --force-depen --force-ivy-tree --force-patch -org -v" -- "$cur" ) \
+			COMPREPLY=( $( compgen -W "--force-all --force-depen --force-ivy-tree --force-patch -v" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		list|l)
-			COMPREPLY=( $( compgen -W "-c -head -m -tree -work -works" -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "-head -m -tree -work -works" -- "$cur" ) )
 			;;
 		ll|lw)
 			COMPREPLY=( $( compgen -W "-c -m -tree" -- "$cur" ) )
@@ -86,11 +81,6 @@ _adm()
 		new-addon)
 			_completion
 			COMPREPLY=( $( compgen -W "-d" -- "$cur" ) \
-			$( compgen -f -- "$cur" ) )
-			;;
-		remove-file|rf)
-			_completion
-			COMPREPLY=( $( compgen -W "-addon" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
 			;;
 		revert)
@@ -113,12 +103,8 @@ _adm()
 			;;
 		update-file|up)
 			_completion
-			COMPREPLY=( $( compgen -W "-addon -d -size" -- "$cur" ) \
+			COMPREPLY=( $( compgen -W "-d -size" -- "$cur" ) \
 			$( compgen -f -- "$cur" ) )
-			;;
-		update-location|ul)
-			_completion
-			COMPREPLY=( $( compgen -W "-i -location -name -r" -- "$cur" ) )
 			;;
 		version)
 			return 0

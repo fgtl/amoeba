@@ -2,10 +2,10 @@
 
 case `uname` in
 	Linux)
-		file=/etc/bash_completion.d/adm
+		file=/etc/bash_completion.d/adm12.04
 		;;
 	Darwin)
-		file=/opt/local/etc/bash_completion.d/adm
+		file=/opt/local/etc/bash_completion.d/adm12.04
 		;;
 	*)
 		echo "Can't recognize the system, please uninstall manually."

@@ -3,10 +3,10 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 case `uname` in
 	Linux)
-		file=/etc/bash_completion.d/adm
+		file=/etc/bash_completion.d/adm12.04
 		;;
 	Darwin)
-		file=/opt/local/etc/bash_completion.d/adm
+		file=/opt/local/etc/bash_completion.d/adm12.04
 		;;
 	*)
 		echo "Your system is not supported yet."
@@ -31,6 +31,6 @@ then
 			exit 0
 	fi
 fi
-cp "$DIR/adm" "$file"
+cp "$DIR/adm12.04" "$file"
 echo "Installation completed."
 exit 0
